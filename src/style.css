@@ -12,6 +12,37 @@ html,
 body {
   height: 100%;
   width: 100%;
-  font-family: "Arial", sans-serif;
+  font-family: "Oswald", sans-serif;
   overflow: hidden;
+  background: linear-gradient(
+    45deg,
+    #d2691e,
+    #b85a17,
+    #a44b15,
+    #903c14,
+    #7c2d12
+  );
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text-gradient {
+  background: linear-gradient(
+    45deg,
+    #ffffff,
+    #f2f2f2,
+    #e6e6e6,
+    #d9d9d9,
+    #cccccc
+  );
+  background: transparent;
+}
+
+@layer {
+  @font-face {
+    font-family: "Oswald", sans-serif;
+    src: url();
+  }
 }

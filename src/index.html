@@ -3,11 +3,259 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
     <title>Weather Forecast App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link href="../dist/output.css" rel="stylesheet" />
   </head>
   <body>
-    <h1 class="text-3xl font-bold underline">Hello world!</h1>
-    <h2 class="text-2xl text-blue-400 font-semibold">Ok Done Tailwind css</h2>
+    <div
+      id="main"
+      class="max-w-6xl w-full h-full mt-6 text-white p-4 rounded-md"
+    >
+      <!-- Header Section -->
+      <header class="h-28 w-full rounded-md">
+        <div class="flex items-center justify-between">
+          <h2 class="font-bold text-xl leading-5">
+            The Weather<br />
+            Forecast
+          </h2>
+          <div class="text-sm">
+            <h3>12:10:10 PM 26/11/2024</h3>
+            <h3 class="font-semibold text-gray-100">City Name: Amravati</h3>
+          </div>
+        </div>
+
+        <div class="w-full mt-3 flex items-start justify-between gap-x-1">
+          <form id="weather-search-form" class="relative w-full">
+            <!-- Search Input -->
+            <input
+              type="text"
+              id="city-input"
+              placeholder="Search for a city..."
+              autocomplete="off"
+              class="w-full pl-10 pr-4 py-2 rounded-lg shadow-sm border focus:outline-none focus:ring focus:ring-blue-300 text-black"
+              aria-expanded="false"
+              aria-controls="search-results"
+              aria-label="Search for a city"
+            />
+
+            <button
+              id="search-btn"
+              type="submit"
+              class="absolute top-5 left-3 cursor-pointer"
+            >
+              <i
+                class="fa-solid fa-magnifying-glass transform -translate-y-1/2 text-gray-500 text-xl rotate-[80deg]"
+              ></i>
+            </button>
+          </form>
+          <button
+            id="current-location-btn"
+            class="py-2 px-4 rounded-md text-black bg-white"
+          >
+            <i class="fa-solid fa-location-crosshairs"></i>
+          </button>
+          <select
+            id="recent-cities-dropdown"
+            class="mb-2 rounded-lg border-none px-4 py-2 text-black"
+          >
+            <option value="">Recent Cities</option>
+          </select>
+          <!-- Dropdown Menu -->
+          <div
+            id="recent-cities-dropdown"
+            class="absolute top-full left-0 z-40 w-full max-w-full rounded-lg bg-white shadow-lg border border-gray-200 hidden"
+          >
+            <div class="flex flex-col"></div>
+          </div>
+        </div>
+      </header>
+
+      <!-- style="display: none" -->
+      <div
+        id="front-message"
+        class="h-1/2 w-full justify-center items-center hidden"
+      >
+        <p>Search for a city or enable location to get the weather data.</p>
+        <button id="current-location-btn">Use Current Location</button>
+      </div>
+
+      <!-- Loader -->
+      <!-- style="display: none" -->
+      <div id="loader" class="h-1/2 w-full justify-center items-center hidden">
+        <i class="fa-solid fa-c animate-spin text-2xl"></i>
+      </div>
+
+      <!-- Main Content -->
+
+      <div
+        id="current-city-data"
+        class="grid grid-cols-2 w-full h-fit gap-x-4 mt-1 backdrop-blur-sm bg-slate-800/5 pb-4"
+      >
+        <!-- Left Section -->
+        <div class="w-full rounded-md p-4">
+          <div class="mb-6">
+            <h2 class="font-semibold text-lg text-center mb-7">
+              CURRENT WEATHER
+            </h2>
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="city-name">Amravati, IN</h3>
+                <h3 class="city-date">Today 28 Nov</h3>
+              </div>
+              <div>
+                <h3 class="temp">4 °C</h3>
+                <h3 class="city-cloud">clear sky</h3>
+              </div>
+              <img
+                src="../assets/clear.png"
+                alt="icon"
+                class="icon h-20 w-20"
+              />
+              <!-- <i class="fa-solid fa-cloud text-4xl"></i> -->
+            </div>
+          </div>
+
+          <div class="mb-8">
+            <h2 class="font-semibold text-lg text-center mb-8">
+              AIR CONDITIONS
+            </h2>
+            <div class="flex items-center justify-between">
+              <h2 class="feels_like">
+                Real Feel
+                <br />
+                19 °C
+              </h2>
+              <h2 class="wind_speed">
+                Wind
+                <br />
+                3.12 m/s
+              </h2>
+              <h2 class="clouds">
+                Clouds<br />
+                100 %
+              </h2>
+              <h2 class="humidity">
+                Humidity
+                <br />
+                32 %
+              </h2>
+            </div>
+          </div>
+
+          <div class="mb-8">
+            <h2 class="font-semibold text-lg text-center mb-6">
+              TODAY'S FORECAST
+            </h2>
+            <div class="flex items-center justify-center gap-2">
+              <div
+                class="flex flex-col items-center justify-between rounded-xl bg-black/15 backdrop-blur-sm h-24 px-2 py-1"
+              >
+                12:00
+                <i class="fa-solid fa-cloud"></i>
+                weather
+              </div>
+              <div
+                class="flex flex-col items-center justify-between rounded-xl bg-black/15 backdrop-blur-sm h-24 px-2 py-1"
+              >
+                12:00
+                <i class="fa-solid fa-cloud"></i>
+                weather
+              </div>
+              <div
+                class="flex flex-col items-center justify-between rounded-xl bg-black/15 backdrop-blur-sm h-24 px-2 py-1"
+              >
+                12:00
+                <i class="fa-solid fa-cloud"></i>
+                weather
+              </div>
+              <div
+                class="flex flex-col items-center justify-between rounded-xl bg-black/15 backdrop-blur-sm h-24 px-2 py-1"
+              >
+                12:00
+                <i class="fa-solid fa-cloud"></i>
+                weather
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="w-full rounded-md p-4 flex flex-col gap-y-4">
+          <h2 class="font-semibold text-lg mb-4 text-center">
+            WEEKLY FORECAST
+          </h2>
+          <div class="w-full grid grid-cols-3 grid-rows-2 gap-1">
+            <h3 class="text-start">Friday</h3>
+            <h3 class="text-center">18 °C</h3>
+            <h3 class="text-end">3.49 m/s</h3>
+            <div class="text-start">
+              <i class="fa-solid fa-cloud"></i> broken clouds
+            </div>
+            <h3 class="text-center">55 %</h3>
+            <h3 class="text-end">37 %</h3>
+          </div>
+          <div class="w-full grid grid-cols-3 grid-rows-2 gap-1">
+            <h3 class="text-start">Saturday</h3>
+            <h3 class="text-center">18 °C</h3>
+            <h3 class="text-end">3.49 m/s</h3>
+            <div class="text-start">
+              <i class="fa-solid fa-cloud"></i> broken clouds
+            </div>
+            <h3 class="text-center">55 %</h3>
+            <h3 class="text-end">37 %</h3>
+          </div>
+          <div class="w-full grid grid-cols-3 grid-rows-2 gap-1">
+            <h3 class="text-start">Friday</h3>
+            <h3 class="text-center">18 °C</h3>
+            <h3 class="text-end">3.49 m/s</h3>
+            <div class="text-start">
+              <i class="fa-solid fa-cloud"></i> broken clouds
+            </div>
+            <h3 class="text-center">55 %</h3>
+            <h3 class="text-end">37 %</h3>
+          </div>
+          <div class="w-full grid grid-cols-3 grid-rows-2 gap-1">
+            <h3 class="text-start">Saturday</h3>
+            <h3 class="text-center">18 °C</h3>
+            <h3 class="text-end">3.49 m/s</h3>
+            <div class="text-start">
+              <i class="fa-solid fa-cloud"></i> broken clouds
+            </div>
+            <h3 class="text-center">55 %</h3>
+            <h3 class="text-end">37 %</h3>
+          </div>
+          <div class="w-full grid grid-cols-3 grid-rows-2 gap-1">
+            <h3 class="text-start">Friday</h3>
+            <h3 class="text-center">18 °C</h3>
+            <h3 class="text-end">3.49 m/s</h3>
+            <div class="text-start">
+              <i class="fa-solid fa-cloud"></i> broken clouds
+            </div>
+            <h3 class="text-center">55 %</h3>
+            <h3 class="text-end">37 %</h3>
+          </div>
+          <div class="w-full grid grid-cols-3 grid-rows-2 gap-1">
+            <h3 class="text-start">Saturday</h3>
+            <h3 class="text-center">18 °C</h3>
+            <h3 class="text-end">3.49 m/s</h3>
+            <div class="text-start">
+              <i class="fa-solid fa-cloud"></i> broken clouds
+            </div>
+            <h3 class="text-center">55 %</h3>
+            <h3 class="text-end">37 %</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>

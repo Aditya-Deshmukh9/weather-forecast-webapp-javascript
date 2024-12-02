@@ -58,6 +58,7 @@
           </form>
           <button
             id="current-location-btn"
+            type="submit"
             class="py-2 px-4 rounded-md text-black bg-white"
           >
             <i class="fa-solid fa-location-crosshairs"></i>
@@ -78,7 +79,7 @@
         </div>
       </header>
 
-      <!-- style="display: none" -->
+      <!-- Intial Massage Data not display -->
       <div
         id="front-message"
         class="h-1/2 w-full justify-center items-center hidden"
@@ -88,13 +89,11 @@
       </div>
 
       <!-- Loader -->
-      <!-- style="display: none" -->
       <div id="loader" class="h-1/2 w-full justify-center items-center hidden">
         <i class="fa-solid fa-c animate-spin text-2xl"></i>
       </div>
 
       <!-- Main Content -->
-
       <div
         id="current-city-data"
         class="grid grid-cols-2 w-full h-fit gap-x-4 mt-1 backdrop-blur-sm bg-slate-800/5 pb-4"
@@ -188,11 +187,11 @@
         </div>
 
         <!-- Right Section -->
-        <div class="w-full rounded-md p-4 flex flex-col gap-y-4">
+        <div id="forecastContainer">
           <h2 class="font-semibold text-lg mb-4 text-center">
             WEEKLY FORECAST
           </h2>
-          <div class="w-full grid grid-cols-3 grid-rows-2 gap-1">
+          <!-- <div class="w-full grid grid-cols-3 grid-rows-2 gap-1">
             <h3 class="text-start">Friday</h3>
             <h3 class="text-center">18 °C</h3>
             <h3 class="text-end">3.49 m/s</h3>
@@ -201,57 +200,7 @@
             </div>
             <h3 class="text-center">55 %</h3>
             <h3 class="text-end">37 %</h3>
-          </div>
-          <div class="w-full grid grid-cols-3 grid-rows-2 gap-1">
-            <h3 class="text-start">Saturday</h3>
-            <h3 class="text-center">18 °C</h3>
-            <h3 class="text-end">3.49 m/s</h3>
-            <div class="text-start">
-              <i class="fa-solid fa-cloud"></i> broken clouds
-            </div>
-            <h3 class="text-center">55 %</h3>
-            <h3 class="text-end">37 %</h3>
-          </div>
-          <div class="w-full grid grid-cols-3 grid-rows-2 gap-1">
-            <h3 class="text-start">Friday</h3>
-            <h3 class="text-center">18 °C</h3>
-            <h3 class="text-end">3.49 m/s</h3>
-            <div class="text-start">
-              <i class="fa-solid fa-cloud"></i> broken clouds
-            </div>
-            <h3 class="text-center">55 %</h3>
-            <h3 class="text-end">37 %</h3>
-          </div>
-          <div class="w-full grid grid-cols-3 grid-rows-2 gap-1">
-            <h3 class="text-start">Saturday</h3>
-            <h3 class="text-center">18 °C</h3>
-            <h3 class="text-end">3.49 m/s</h3>
-            <div class="text-start">
-              <i class="fa-solid fa-cloud"></i> broken clouds
-            </div>
-            <h3 class="text-center">55 %</h3>
-            <h3 class="text-end">37 %</h3>
-          </div>
-          <div class="w-full grid grid-cols-3 grid-rows-2 gap-1">
-            <h3 class="text-start">Friday</h3>
-            <h3 class="text-center">18 °C</h3>
-            <h3 class="text-end">3.49 m/s</h3>
-            <div class="text-start">
-              <i class="fa-solid fa-cloud"></i> broken clouds
-            </div>
-            <h3 class="text-center">55 %</h3>
-            <h3 class="text-end">37 %</h3>
-          </div>
-          <div class="w-full grid grid-cols-3 grid-rows-2 gap-1">
-            <h3 class="text-start">Saturday</h3>
-            <h3 class="text-center">18 °C</h3>
-            <h3 class="text-end">3.49 m/s</h3>
-            <div class="text-start">
-              <i class="fa-solid fa-cloud"></i> broken clouds
-            </div>
-            <h3 class="text-center">55 %</h3>
-            <h3 class="text-end">37 %</h3>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

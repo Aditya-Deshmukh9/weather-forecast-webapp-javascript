@@ -3,7 +3,7 @@ import { API_KEY, weatherTypesImage } from "./utils.js";
 export async function displayWeeklyForecast(cityName) {
   try {
     const response = await fetch(
-      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityName}/last7days?unitGroup=metric&include=days&key=${API_KEY}&contentType=json`
+      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityName}/next7days?unitGroup=metric&include=days&key=${API_KEY}&contentType=json`
     );
 
     if (!response) throw new Error("City not found.");

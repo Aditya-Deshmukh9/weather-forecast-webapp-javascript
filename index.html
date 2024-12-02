@@ -12,7 +12,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link href="../dist/output.css" rel="stylesheet" />
+    <link href="./dist/output.css" rel="stylesheet" />
   </head>
   <body>
     <div
@@ -86,10 +86,7 @@
       <div
         id="front-message"
         class="h-1/2 w-full justify-center items-center hidden"
-      >
-        <p>Search for a city or enable location to get the weather data.</p>
-        <button id="current-location-btn">Use Current Location</button>
-      </div>
+      ></div>
 
       <!-- Loader -->
       <div id="loader" class="h-1/2 w-full justify-center items-center hidden">
@@ -99,7 +96,7 @@
       <!-- Main Content -->
       <div
         id="current-city-data"
-        class="grid md:grid-cols-2 grid-cols-1 w-full h-fit gap-x-4 mt-1 backdrop-blur-sm bg-slate-800/5 pb-4"
+        class="grid md:grid-cols-2 grid-cols-1 w-full h-fit gap-x-4 mt-1 backdrop-blur-sm shadow-sm bg-slate-800/5 pb-4"
       >
         <!-- Left Section -->
         <div class="w-full rounded-md p-4">
@@ -125,66 +122,51 @@
             </div>
           </div>
 
-          <div class="mb-8">
+          <div class="mb-8 w-full h-1/2">
             <h2 class="font-semibold text-lg text-center mb-8">
               AIR CONDITIONS
             </h2>
-            <div class="flex items-center justify-between">
-              <h2 class="feels_like">
-                Real Feel
+            <div class="grid grid-cols-3 grid-rows-2 gap-3 gap-y-4 h-full">
+              <h2 class="feels_like text-start">
+                Feels Like
                 <br />
                 19 °C
               </h2>
-              <h2 class="wind_speed">
+              <h2 class="wind_speed text-center">
+                <i class="fa-solid fa-wind"></i>
                 Wind
                 <br />
-                3.12 m/s
+                <span>3.12 m/s</span>
               </h2>
-              <h2 class="clouds">
+              <h2 class="clouds text-end">
+                <i class="fa-solid fa-cloud"></i>
                 Clouds<br />
-                100 %
+                <span>100 %</span>
               </h2>
-              <h2 class="humidity">
+              <h2 class="humidity text-start">
                 Humidity
                 <br />
                 32 %
               </h2>
-            </div>
-          </div>
-
-          <div class="mb-8">
-            <h2 class="font-semibold text-lg text-center mb-6">
-              TODAY'S FORECAST
-            </h2>
-            <div class="flex items-center justify-center gap-2">
-              <div
-                class="flex flex-col items-center justify-between rounded-xl bg-black/15 backdrop-blur-sm h-24 px-2 py-1"
-              >
-                12:00
-                <i class="fa-solid fa-cloud"></i>
-                weather
-              </div>
-              <div
-                class="flex flex-col items-center justify-between rounded-xl bg-black/15 backdrop-blur-sm h-24 px-2 py-1"
-              >
-                12:00
-                <i class="fa-solid fa-cloud"></i>
-                weather
-              </div>
-              <div
-                class="flex flex-col items-center justify-between rounded-xl bg-black/15 backdrop-blur-sm h-24 px-2 py-1"
-              >
-                12:00
-                <i class="fa-solid fa-cloud"></i>
-                weather
-              </div>
-              <div
-                class="flex flex-col items-center justify-between rounded-xl bg-black/15 backdrop-blur-sm h-24 px-2 py-1"
-              >
-                12:00
-                <i class="fa-solid fa-cloud"></i>
-                weather
-              </div>
+              <h2 class="sun_rise text-center">
+                Sun Rise
+                <br />
+                19 °C
+              </h2>
+              <h2 class="sun_set text-end">
+                Sun Set
+                <br />
+                3.12 m/s
+              </h2>
+              <h2 class="uvindex text-start">
+                UV index<br />
+                100 %
+              </h2>
+              <h2 class="visibility text-center">
+                Visibility
+                <br />
+                32 %
+              </h2>
             </div>
           </div>
         </div>
@@ -200,11 +182,11 @@
       </div>
     </div>
 
-    <script type="module" src="app.js"></script>
-    <script type="module" src="./js/localStorage.js"></script>
-    <script type="module" src="./js/ui.js"></script>
-    <script type="module" src="./js/weather.js"></script>
-    <script type="module" src="./js/forecast.js"></script>
-    <script type="module" src="./js/utils.js"></script>
+    <script type="module" src="./src/app.js"></script>
+    <script type="module" src="./src/js/localStorage.js"></script>
+    <script type="module" src="./src/js/ui.js"></script>
+    <script type="module" src="./src/js/weather.js"></script>
+    <script type="module" src="./src/js/forecast.js"></script>
+    <script type="module" src="./src/js/utils.js"></script>
   </body>
 </html>

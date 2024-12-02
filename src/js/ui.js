@@ -25,9 +25,9 @@ export function showMessage(message) {
   messageSection.classList.remove("hidden");
   messageSection.classList.add("flex");
   messageSection.innerHTML = `
-    <p>${message}</p>
-    <p>TRY SEARCH CITY</p>
-    <button id="search-city-btn" class="btn">Search City</button>
+    <p>${message}</p><br> 
+    <p>Try to search city </p>
+    <button id="search-city-btn" class="bg-white text-black ml-2 py-1 px-2 rounded-lg">Search City</button>
   `;
 
   weatherDataSection.classList.add("hidden");
@@ -35,7 +35,6 @@ export function showMessage(message) {
   // event listener to "Search City" button
   const searchCityBtn = document.getElementById("search-city-btn");
   searchCityBtn.addEventListener("click", () => {
-    // Trigger city search when the button is clicked
     document.getElementById("city-input").focus();
   });
 }

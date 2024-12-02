@@ -9,9 +9,8 @@ export async function displayWeeklyForecast(cityName) {
     if (!response) throw new Error("City not found.");
     const data = await response.json();
 
-    const displayData = data.days.map((day) => {
-      const { datetimeEpoch, temp, windspeed, cloudcover, humidity, icon } =
-        day;
+    const displayData = data.days.slice(1, 8).map((day) => {
+      const { datetimeEpoch, temp, humidity, icon } = day;
       let iconImageURL = null;
 
       const date = new Date(datetimeEpoch * 1000);
@@ -23,8 +22,6 @@ export async function displayWeeklyForecast(cityName) {
       return {
         date,
         temp,
-        windspeed,
-        cloudcover,
         humidity,
         iconImageURL,
         icon,
@@ -41,15 +38,15 @@ export async function displayWeeklyForecast(cityName) {
               .map(
                 (forecast) => `
               <h3 class="text-start">${forecast.date.toLocaleDateString()}</h3>
-              <h3 class="text-center">${forecast.temp} °C</h3>
-              <h3 class="text-end">${forecast.windspeed.toFixed(2)} m/s</h3>
+              <h3 class="text-center">Temp</h3>
+              <h3 class="text-end">Humidity</h3>
               <div class="text-start">
                 <img src="${forecast.iconImageURL}" alt="${
                   forecast.icon
-                }" class="inline-block w-7 h-7" />
+                }" class="inline-block w-8 h-8" />
               </div>
-              <h3 class="text-center">${forecast.humidity} %</h3>
-              <h3 class="text-end">${forecast.cloudcover} %</h3>
+              <h3 class="text-center">${forecast.temp} °C</h3>
+              <h3 class="text-end">${forecast.humidity} %</h3>
             `
               )
               .join("")}

@@ -18,7 +18,7 @@ export async function fetchWeather(city) {
     updateRecentCities(city);
   } catch (error) {
     console.log(error);
-    alert(error.message);
+    alert("City Not Found");
   } finally {
     hideLoader();
   }
